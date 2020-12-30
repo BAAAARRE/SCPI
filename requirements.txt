@@ -3,5 +3,5 @@ pandas
 plotly_express
 requests
 json
-bs4
+BeautifulSoup4
 plotly
