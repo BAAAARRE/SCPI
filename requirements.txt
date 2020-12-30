@@ -4,3 +4,4 @@ plotly_express
 requests
 bs4
 plotly
+lxml
