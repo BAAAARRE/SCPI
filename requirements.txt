@@ -2,6 +2,5 @@ streamlit
 pandas
 plotly_express
 requests
-json
 bs4
 plotly
