@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 import json
-from bs4 import BeautifulSoup
+from BeautifulSoup4 import BeautifulSoup
 import plotly.graph_objects as go
 import plotly.express as px
 
