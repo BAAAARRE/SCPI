@@ -35,7 +35,7 @@ def main():
         st.sidebar.title('Generals filters')
         sel_capital = st.sidebar.multiselect('Select Capital', sorted(info['Capital'].unique()))
         slider_distri = st.sidebar.slider('Taux de distribution', float(info['Tx distrib'].min()), float(info['Tx distrib'].max()), (float(info['Tx distrib'].min()), float(info['Tx distrib'].max())))
-        slider_occup = st.sidebar.slider("Taux d'occupation", info['Tx occup'].min(), info['Tx occup'].max(), (info['Tx occup'].min(), info['Tx occup'].max()))
+        slider_occup = st.sidebar.slider("Taux d'occupation", float(info['Tx occup'].min()), float(info['Tx occup'].max()), (float(info['Tx occup'].min()), float(info['Tx occup'].max())))
         slider_crea = st.sidebar.slider('Année de Création', int(info['Date de création'].min()), int(info['Date de création'].max()), (int(info['Date de création'].min()), int(info['Date de création'].max())))
         # Configure generals filters
         df_capital = multi_filter(info, sel_capital, 'Capital')
