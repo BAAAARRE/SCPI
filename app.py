@@ -46,6 +46,8 @@ def main():
         info_select = info[info.isin(df_capital) & info.isin(df_distri) & info.isin(df_occup) & info.isin(df_crea)].dropna()
 
         st.dataframe(info_select, width=2024, height=768)
+
+        scatter_plot(info_select, 'Tx distrib', 'Tx occup', 'SCPI')
         #st.dataframe(prix)
         #st.dataframe(distri)
         #st.dataframe(data)
@@ -154,8 +156,6 @@ def clean_distri(distri):
         clean_distri[i] = clean_distri[i].str.replace(',', '.').astype(float)
     return clean_distri
 
-
-
 def multi_filter(df, sel, var):
     if len(sel) == 0:
         df_sel = df
@@ -163,8 +163,16 @@ def multi_filter(df, sel, var):
         df_sel = df[df[var].isin(sel)]
     return df_sel
 
-
-    st.write(fig)
+def scatter_plot(df, x_axis, y_axis, label):
+    graph = px.scatter(df, x = x_axis, y = y_axis,
+    text = label, 
+    #hover_name="Player",
+    hover_data=['Date de création'],
+    #color = color,
+    template = "simple_white",
+    )
+    graph.update_traces(textposition='top center')
+    st.write(graph)
 
 
 if __name__ == "__main__":
